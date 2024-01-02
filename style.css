@@ -1,6 +1,4 @@
-:root {
-    --quote-font: 'Great Vibes', cursive;
-}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -18,20 +16,33 @@ hr {
     color: rgba(255, 127, 80, 0.938);
 }
 
-span.quote {
-    font-family: var(--quote-font);
-    font-size: 2rem;
-    font-weight: bold;
-    color: rgba(160, 7, 7, 0.856);
-}
-
 #newGameBtn {
     background-color: rgba(14, 179, 14, 0.884);
     color: #fff;
     padding: 10px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
+
+#newGameBtn:hover {
+    background-color: rgb(28, 114, 212);
+}
+
+#solveBtn {
+    background-color: #ec9633;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* Dodajte razmak sa dugmetom "Nova igra" */
+    border-radius: 5px;
+}
+
+#solveBtn:hover {
+    background-color: #e55400;
+}
+
 
 #digits {
     width: 450px;

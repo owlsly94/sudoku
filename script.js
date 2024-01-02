@@ -40,17 +40,17 @@ function setGame() {
             if (c == 2 || c == 5) {
                 tile.classList.add("vertical-line");
             }
-            if (r == 0 || r == 0) {
-                tile.classList.add("horizontal-line2")
+            if (r == 0 || r == 8) {
+                tile.classList.add("horizontal-line2");
             }
             if (r == 8 || r == 8) {
-                tile.classList.add("horizontal-line3")
+                tile.classList.add("horizontal-line3");
             }
             if (c == 0) {
-                tile.classList.add("vertical-line2")
+                tile.classList.add("vertical-line2");
             }
             if (c == 8) {
-                tile.classList.add("vertical-line3")
+                tile.classList.add("vertical-line3");
             }
             tile.addEventListener("click", selectTile);
             tile.classList.add("tile");
@@ -108,4 +108,42 @@ function newGame() {
     // Clear the board and fetch a new game
     document.getElementById("board").innerHTML = "";
     setGame();
+}
+
+// Function to be called when clicking the "Resi" button
+function solveSudoku() {
+    // Check if the board is already solved
+    if (boardIsComplete()) {
+        alert("Tabla je već rešena!");
+        return;
+    }
+
+    // Fill the board with the solution
+    for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+            let tileId = r.toString() + "-" + c.toString();
+            let tile = document.getElementById(tileId);
+
+            // Check if the tile is not a starting tile
+            if (!tile.classList.contains("tile-start")) {
+                tile.innerText = solution[r][c];
+            }
+        }
+    }
+}
+
+// Helper function to check if the board is complete
+function boardIsComplete() {
+    for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+            let tileId = r.toString() + "-" + c.toString();
+            let tile = document.getElementById(tileId);
+
+            // Check if any non-starting tile is still empty
+            if (!tile.classList.contains("tile-start") && tile.innerText === "") {
+                return false;
+            }
+        }
+    }
+    return true;
 }
