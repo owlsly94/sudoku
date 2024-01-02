@@ -40,7 +40,7 @@ function setGame() {
             if (c == 2 || c == 5) {
                 tile.classList.add("vertical-line");
             }
-            if (r == 0 || r == 8) {
+            if (r == 0 || r == 0) {
                 tile.classList.add("horizontal-line2");
             }
             if (r == 8 || r == 8) {
